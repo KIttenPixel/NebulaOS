@@ -4,7 +4,6 @@ local installerConfigs = "Installer/"
 local function getComponentAddress(name)
 	return component.list(name)() or error("Required " .. name .. " component is missing")
 end
-
 local repositoryURL = "https://raw.githubusercontent.com/IgorTimofeev/MineOS/master/"
 
 local internetAddress, GPUAddress = 
@@ -122,4 +121,4 @@ do
 	end
 end
 
-local files = deserialize(request(installerURL .. "Files.cfg"))
+local files = deserialize(request(installerConfigs .. "Files.cfg"))
