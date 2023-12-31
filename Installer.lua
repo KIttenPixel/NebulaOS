@@ -4,8 +4,6 @@ local function getcomponentAddress(name)
 	return component.list(name)() or error("Required " .. name .. " component is missing")
 end
 
-local screenWidth, screenHeight = component.invoke(GPUAddress, "getResolution")
-
 local internetAddress, GPUAddress = 
 	getcomponentAddress("internet"),
 	getcomponentAddress("gpu")
@@ -13,6 +11,9 @@ local internetAddress, GPUAddress =
 local installerConfigs = "Installer/"
 
 local repositoryURL = "https://github.com/KittenPixel-cell/WrenchOS"
+
+
+local screenWidth, screenHeight = component.invoke(GPUAddress, "getResolution")
 
 local function centrize(width)
 	return math.floor(screenWidth / 2 - width / 2)
