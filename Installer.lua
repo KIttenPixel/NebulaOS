@@ -14,6 +14,33 @@ local installerConfigs = "Installer/"
 
 local repositoryURL = "https://github.com/KittenPixel-cell/WrenchOS"
 
+local function centrize(width)
+	return math.floor(screenWidth / 2 - width / 2)
+end
+
+local function centrizedText(y, color, text)
+	component.invoke(GPUAddress, "fill", 1, y, screenWidth, 1, " ")
+	component.invoke(GPUAddress, "setForeground", color)
+	component.invoke(GPUAddress, "set", centrize(#text), y, text)
+end
+
+local function title()
+	local y = math.floor(screenHeight / 2 - 1)
+	centrizedText(y, 0x2D2D2D, "MineOS")
+
+	return y + 2
+end
+
+local function progress(value)
+	local width = 26
+	local x, y, part = centrize(width), title(), math.ceil(width * value)
+	
+	component.invoke(GPUAddress, "setForeground", 0x878787)
+	component.invoke(GPUAddress, "set", x, y, string.rep("─", part))
+	component.invoke(GPUAddress, "setForeground", 0xC3C3C3)
+	component.invoke(GPUAddress, "set", x + part, y, string.rep("─", width - part))
+end
+
 local function filesystemPath(path)
 	return path:match("^(.+%/).") or ""
 end
@@ -124,12 +151,14 @@ do
 		warning("At least Tier 2 HDD is required")
 	end
 end
-
+progress(0)
 local files = deserialize(request(installerConfigs .. "Files.cfg"))
-
+progress(50)
 for i = 1, #files.installerFiles do
 	progress(i / #files.installerFiles)
 	download(files.installerFiles[i], installerPath .. files.installerFiles[i])
 end
+progress(100)
+sleep(1000)
 
 shell.run("/usr/bin/desktop.lua")
