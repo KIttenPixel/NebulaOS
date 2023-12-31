@@ -1,14 +1,6 @@
 local installerConfigs = "Installer/"
 
--- Checking for required components
-local function getComponentAddress(name)
-	return component.list(name)() or error("Required " .. name .. " component is missing")
-end
-local repositoryURL = "https://raw.githubusercontent.com/IgorTimofeev/MineOS/master/"
-
-local internetAddress, GPUAddress = 
-	getComponentAddress("internet"),
-	getComponentAddress("gpu")
+local repositoryURL = "https://github.com/KittenPixel-cell/WrenchOS"
 
 local function filesystemPath(path)
 	return path:match("^(.+%/).") or ""
