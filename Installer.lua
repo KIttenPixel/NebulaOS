@@ -1,12 +1,12 @@
 local component = require("component")
 
-local function getComponentAddress(name)
+local function getcomponentAddress(name)
 	return component.list(name)() or error("Required " .. name .. " component is missing")
 end
 
 local internetAddress, GPUAddress = 
-	getComponentAddress("internet"),
-	getComponentAddress("gpu")
+	getcomponentAddress("internet"),
+	getcomponentAddress("gpu")
 
 local installerConfigs = "Installer/"
 
@@ -124,3 +124,10 @@ do
 end
 
 local files = deserialize(request(installerConfigs .. "Files.cfg"))
+
+for i = 1, #files.installerFiles do
+	progress(i / #files.installerFiles)
+	download(files.installerFiles[i], installerPath .. files.installerFiles[i])
+end
+
+shell.run("/usr/bin/desktop.lua")
