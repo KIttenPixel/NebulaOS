@@ -4,6 +4,8 @@ local function getcomponentAddress(name)
 	return component.list(name)() or error("Required " .. name .. " component is missing")
 end
 
+local screenWidth, screenHeight = component.invoke(GPUAddress, "getResolution")
+
 local internetAddress, GPUAddress = 
 	getcomponentAddress("internet"),
 	getcomponentAddress("gpu")
