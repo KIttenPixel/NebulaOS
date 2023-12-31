@@ -1,3 +1,13 @@
+local component = require("component")
+
+local function getComponentAddress(name)
+	return component.list(name)() or error("Required " .. name .. " component is missing")
+end
+
+local internetAddress, GPUAddress = 
+	getComponentAddress("internet"),
+	getComponentAddress("gpu")
+
 local installerConfigs = "Installer/"
 
 local repositoryURL = "https://github.com/KittenPixel-cell/WrenchOS"
