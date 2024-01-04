@@ -11,6 +11,8 @@ local internetAddress, GPUAddress =
 
 local installerConfigs = "Installer/"
 
+local FilesConfigs = "Installer/Files.cfg"
+
 local repositoryURL = "https://github.com/KittenPixel-cell/WrenchOS"
 
 
@@ -154,11 +156,11 @@ do
 	end
 end
 progress(0)
-local files = deserialize(request(installerConfigs .. "Files.cfg"))
+local files = deserialize(request(FilesConfigs))
 progress(50)
-for i = 1, #files.installerFiles do
-	progress(i / #files.installerFiles)
-	download(files.installerFiles[i], installerPath .. files.installerFiles[i])
+for i = 1, #files.OsFiles do
+	progress(i / #files.OsFiles)
+	download(files.OsFiles[i], files.OsFiles[i])
 end
 progress(100)
 sleep(1000)
