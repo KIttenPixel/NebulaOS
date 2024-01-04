@@ -1,4 +1,5 @@
 local component = require("component")
+local computer = require("computer")
 
 local function getcomponentAddress(name)
 	return component.list(name)() or error("Required " .. name .. " component is missing")
@@ -128,6 +129,14 @@ do
 		until signal == "key_down" or signal == "touch"
 
 		computer.shutdown()
+	end
+
+	if component.invoke(GPUAddress, "getDepth") ~= 8 then
+		warning("Tier 3 GPU and screen are required")
+	end
+
+	if computer.totalMemory() < 1024 * 1024 * 2 then
+		warning("At least 2x Tier 3.5 RAM modules are required")
 	end
 
 	-- Searching for appropriate temporary filesystem for storing libraries, images, etc
