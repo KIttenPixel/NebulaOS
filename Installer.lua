@@ -1,5 +1,4 @@
 local component = require("component")
-local computer = require("computer")
 
 local function getcomponentAddress(name)
 	return component.list(name)() or error("Required " .. name .. " component is missing")
