@@ -28,7 +28,7 @@ end
 
 local function title()
 	local y = math.floor(screenHeight / 2 - 1)
-	centrizedText(y, 0x2D2D2D, "MineOS")
+	centrizedText(y, 0x2D2D2D, "WrenchOS - Loading")
 
 	return y + 2
 end
@@ -37,7 +37,7 @@ local function progress(value)
 	local width = 26
 	local x, y, part = centrize(width), title(), math.ceil(width * value)
 	
-	component.invoke(GPUAddress, "setForeground", 0x878787)
+	component.invoke(GPUAddress, "setForeground", 0x121211)
 	component.invoke(GPUAddress, "set", x, y, string.rep("─", part))
 	component.invoke(GPUAddress, "setForeground", 0xC3C3C3)
 	component.invoke(GPUAddress, "set", x + part, y, string.rep("─", width - part))
@@ -116,7 +116,7 @@ local function deserialize(text)
 	end
 end
 
-component.invoke(GPUAddress, "setBackground", 0xE1E1E1)
+component.invoke(GPUAddress, "setBackground", 0x1a1a1a)
 component.invoke(GPUAddress, "fill", 1, 1, screenWidth, screenHeight, " ")
 
 do
