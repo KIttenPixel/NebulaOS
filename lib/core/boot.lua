@@ -1,7 +1,7 @@
 -- called from /init.lua
 local raw_loadfile = ...
 
-_G._OSVERSION = "WrenchOS 0.0.1"
+_G._OSVERSION = "NebulaOS 0.0.1"
 
 -- luacheck: globals component computer unicode _OSVERSION
 local component = component
