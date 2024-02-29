@@ -165,4 +165,4 @@ end
 progress(100)
 sleep(1000)
 
-shell.run("/usr/bin/desktop.lua")
+--shell.run("/usr/bin/desktop.lua")
