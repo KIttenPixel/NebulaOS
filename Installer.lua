@@ -13,7 +13,7 @@ local installerConfigs = "Installer/"
 
 local FilesConfigs = "Installer/Files.cfg"
 
-local repositoryURL = "https://raw.githubusercontent.com/KittenPixel-cell/NebulaOS/main"
+local repositoryURL = "https://raw.githubusercontent.com/KittenPixel-cell/NebulaOS/master"
 
 
 local screenWidth, screenHeight = component.invoke(GPUAddress, "getResolution")
