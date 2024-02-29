@@ -156,7 +156,7 @@ do
 	end
 end
 progress(0)
-local files = deserialize(request(FilesConfigs))
+local files = deserialize(request(installerConfigs .. "Files.cfg"))
 progress(50)
 for i = 1, #files.OsFiles do
 	progress(i / #files.OsFiles)
