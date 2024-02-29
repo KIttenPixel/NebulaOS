@@ -13,7 +13,7 @@ local installerConfigs = "Installer/"
 
 local FilesConfigs = "Installer/Files.cfg"
 
-local repositoryURL = "https://github.com/KittenPixel-cell/WrenchOS"
+local repositoryURL = "https://github.com/KittenPixel-cell/NebulaOS"
 
 
 local screenWidth, screenHeight = component.invoke(GPUAddress, "getResolution")
@@ -30,7 +30,7 @@ end
 
 local function title()
 	local y = math.floor(screenHeight / 2 - 1)
-	centrizedText(y, 0x2D2D2D, "WrenchOS - Loading")
+	centrizedText(y, 0x2D2D2D, "NebulaOS - Loading")
 
 	return y + 2
 end
