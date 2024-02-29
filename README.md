@@ -5,17 +5,8 @@
 NebulaOS is a CLI based operating system for the OpenComputers Minecraft mod.
 
 -   Multitasking
--   Double buffered graphical user interface
 -   Language packs and software localization
 -   Multiple user profiles with password authentication
--   Own EEPROM firmware with boot volume choose/format/rename features and recover system through Internet
--   File sharing over the local network via modems
--   Client connections to real FTP servers
--   An internal IDE with syntax highlighting and debugger 
--   Integrated application and library App Market with the ability to publish your own scripts and programs for every MineOS user
--   Error reporting system with the possibility to send information to developers
--   Animations, live wallpapers, color schemes and huge customization possibilities
--   Open source system API and detailed documentation
 
 ## How to install?
 
