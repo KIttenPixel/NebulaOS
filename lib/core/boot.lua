@@ -148,4 +148,4 @@ computer.pushSignal("init") -- so libs know components are initialized.
 require("event").pull(1, "init") -- Allow init processing.
 _G.runlevel = 1
 
-shell.run("/usr/bin/desktop.lua")
+--shell.run("/usr/bin/desktop.lua")
