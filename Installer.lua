@@ -163,8 +163,6 @@ for i = 1, #files.OsFiles do
 	download(files.OsFiles[i], files.OsFiles[i])
 end
 progress(100)
---os.sleep(1000)
-wait(10)
 
 computer.shutdown(true)
 --shell.run("/usr/bin/desktop.lua")
